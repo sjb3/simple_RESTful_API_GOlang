@@ -21,7 +21,6 @@ type Address struct {
 
 var people []Person
 
-
 func GetPersonEndPoint(w http.ResponseWriter, req *http.Request){
   params := mux.Vars(req)
   for _, item := range people {
@@ -46,7 +45,6 @@ func CreatePersonEndPoint(w http.ResponseWriter, req *http.Request){
   json.NewEncoder(w).Encode(people)
 }
 
-
 func DeletePersonEndPoint(w http.ResponseWriter, req *http.Request){
   params := mux.Vars(req)
   for index, item := range people{
@@ -57,6 +55,7 @@ func DeletePersonEndPoint(w http.ResponseWriter, req *http.Request){
   }
   json.NewEncoder(w).Encode(people)
 }
+
 func main(){
   router := mux.NewRouter()
   people = append(people, Person{ID: "1", Firstname: "Lucien", Lastname: "What",
